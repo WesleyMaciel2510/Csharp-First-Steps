@@ -1,0 +1,22 @@
+http://www.tutorialsteacher.com/csharp/csharp-data-types
+
+{
+            int x = 20, y = 50;
+            bool ok;
+            ok = x.Equals(y);
+            Console.WriteLine(ok);
+            x = 50;
+            Console.WriteLine(ok);
+            Console.ReadKey();
+ }
+
+//forçar transferencia float em decimal
+float y = 10
+y = (float)z;
+
+double = hardcoding
+decimal z = 23.78m ( m = decimal )
+
+char = virgulas invertidas : '        '
+char sexo;
+sexo = 'M';
