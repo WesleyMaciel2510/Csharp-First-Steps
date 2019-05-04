@@ -16,7 +16,7 @@ namespace Exercicio2A
             DateTime dataVencto;
             int dia, mes, ano;
 
-            Console.WriteLine("Insira o códico de barra: {0}", codBarra);
+            Console.WriteLine("Insira o código de barra: {0}", codBarra);
             //codBarra = Console.ReadLine();
             banco = codBarra.Substring(0, 3);
             Console.WriteLine("Banco: {0}", banco);
