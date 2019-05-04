@@ -51,3 +51,106 @@ namespace Animal
         }
     }
 }
+
+// ____________________________________________________________________________
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Animal
+{
+    class Animal
+    {
+        //propriedades (atributos) da classe ( get - lida, set - gravada )
+        public string Nome { get; set; }
+        public string Raca { get; set; }
+        public DateTime DataNasc { get; set; }
+        public char Sexo { get; set; }
+        public string TipoSangue { get; set; }
+        public string Dono { get; set; }
+
+        public void Gravar ()
+        {
+            Console.Write("Insira o nome do Animal");
+            Nome = Console.ReadLine();
+
+            Console.Write("Raça: ");
+            Raca = Console.ReadLine();
+
+            Console.Write("Data de Nascimento: ");
+            DataNasc = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Sexo: ");
+            Sexo = char.Parse(Console.ReadLine());
+
+            Console.Write("Tipo Sanguíneo: ");
+            TipoSangue = Console.ReadLine();
+
+            Console.Write("Nome do Dono: ");
+            Dono = Console.ReadLine();
+
+            StreamWriter escrever = new StreamWriter("Animal.txt", true);
+            escrever.WriteLine(Nome);
+            escrever.WriteLine(Raca);
+            escrever.WriteLine(DataNasc);
+            escrever.WriteLine(Sexo);
+            escrever.WriteLine(TipoSangue);
+            escrever.WriteLine(Dono);
+            escrever.WriteLine("======================");
+            escrever.Close();
+
+            Console.WriteLine("GRAVAÇÃO EFETUADA COM SUCESSO! ");
+            Console.WriteLine("<TECLE ALGO PARA CONTINUAR>");
+            Console.ReadKey();
+
+
+        }
+       
+        public void Ler()
+        {
+            StreamReader ver = new StreamReader("Animal.txt");
+            Console.WriteLine(ver.ReadToEnd());
+            ver.Close();
+        
+        }
+
+        public bool Procurar(string nomeAnimal)
+        {
+            string linha = "";
+            bool ok = false;
+
+            StreamReader ler = new StreamReader("Animal.txt");
+
+            while(linha!= null)
+            {
+                if (ler.EndOfStream)
+                break;
+
+                linha = ler.ReadLine();
+                if (linha.ToUpper().Trim() == nomeAnimal.ToUpper().Trim())
+                {
+                    for (int i = 0; i < 5; i++)
+                    {
+                        linha = ler.ReadLine();
+                        Console.WriteLine(linha);
+                    }
+
+                    ok = true;
+                    break;
+                }
+                else
+                {
+                    ok = false;
+                }
+            }
+
+            return ok;
+        }
+
+
+    }
+}
+
