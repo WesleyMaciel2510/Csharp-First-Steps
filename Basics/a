@@ -1,0 +1,55 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //vetor
+            //int[] cpf = new int[11];
+            //Console.WriteLine("CPF : ");
+            //string CPF = Console.ReadLine();
+
+            //cpf[0] = int.Parse(CPF.Substring(0, 1)); // do not do like that, its the hardest way
+
+           
+
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    Console.Write(cpf[i]);
+            //}
+
+            // matriz
+
+            string[,] xyz = new string[3, 3];
+
+            xyz[0,0] = "The Beatles";
+            xyz[0,1] = "ZZ TOP";
+            xyz[0,2] = "The Grateful Dead";
+            xyz[1,0] = "Iron Maden";
+            xyz[1, 1] = "Chiclete com Banana";
+            xyz[1, 2] = "The Beatles";
+            xyz[2, 0] = "The Beatles";
+            xyz[2, 1] = "The Beatles";
+            xyz[2, 2] = "The Beatles";
+            xyz[0, 0] = "The Beatles";
+            xyz[0, 0] = "The Beatles";
+
+            for (int i = 0; i< 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine(xyz[i,j]);
+                }
+            }
+
+
+            Console.ReadKey();
+        }
+    }
+}
