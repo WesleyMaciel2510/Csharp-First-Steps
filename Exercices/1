@@ -1,0 +1,158 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exercicio01B
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string descricao, fornecedor, categoria = "", Medida = "", sn = "";
+            decimal precoCusto = 0, precoAtacado, precoVarejo;
+            double porLucroAtacado, porLucroVarejo;
+            int opcao, qtdeEstoque, qtdeMinima;
+            bool ok = false;
+
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("**** Sistema de Estoque - Cadastro de Produtos *****\n");
+                Console.Write("Descrição do Produto: ");
+                descricao = Console.ReadLine();
+
+                Console.Write("Fornecedor: ");
+                fornecedor = Console.ReadLine();
+
+
+                Console.WriteLine("Escolha a categoria: ");
+                Console.WriteLine("1. Alimento");
+                Console.WriteLine("2. Vestuário");
+                Console.WriteLine("3. Eletrônicos");
+                Console.WriteLine("4. Outros");
+
+                do
+                {
+                    opcao = int.Parse(Console.ReadLine());
+                } while (opcao < 1 || opcao > 4);
+                switch (opcao)
+                {
+                    case 1:
+                        categoria = "Alimento";
+                        break;
+
+                    case 2:
+                        categoria = "Vestuário";
+                        break;
+
+                    case 3:
+                        categoria = "Eletrônicos";
+                        break;
+
+                    case 4:
+                        categoria = "Outros";
+                        break;
+                }
+
+                Console.WriteLine("Categoria: {0}", categoria);
+
+                Console.Write("Escolha a Medida -> 1. Unidade 2. Kilo: ");
+
+                do
+                {
+                    opcao = int.Parse(Console.ReadLine());
+                } while (opcao < 1 || opcao > 2);
+
+                switch (opcao)
+                {
+                    case 1:
+                        Medida = "Unidade";
+                        break;
+
+                    case 2:
+                        Medida = "Kilo";
+                        break;
+                }
+
+                Console.WriteLine("Medida: {0}", Medida);
+
+                Console.Write("Qtde em Estoque: ");
+                qtdeEstoque = int.Parse(Console.ReadLine());
+
+                Console.Write("Qtde em Mínima em Estoque: ");
+                qtdeMinima = int.Parse(Console.ReadLine());
+
+                Console.Write("Preço de Custo: R$ ");
+
+                do
+                {
+                    ok = false;
+                    try
+                    {
+                        precoCusto = decimal.Parse(Console.ReadLine());
+                    }
+                    catch
+                    {
+                        ok = true;
+                        Console.WriteLine("Você fex uma cagada!!");
+                    }
+                } while (ok);
+                
+                Console.Write("% de Lucro no Varejo: ");
+                porLucroVarejo = double.Parse(Console.ReadLine());
+                porLucroVarejo = porLucroVarejo / 100;
+
+                Console.Write("% de Lucro no Atacado: ");
+                porLucroAtacado = double.Parse(Console.ReadLine());
+                porLucroAtacado = porLucroAtacado / 100;
+
+                Console.Write("Acrescenta ICMS - 25%? (S/N): ");
+
+                do
+                {
+                    sn = Console.ReadLine();
+                } while (sn.ToUpper() != "S" && sn.ToUpper() != "N");
+
+
+                if (sn.ToUpper() == "S")
+                {
+                    precoVarejo = 1.25m * (precoCusto * (1 + (decimal)porLucroVarejo));
+                    precoAtacado = 1.25m * (precoCusto * (1 + (decimal)porLucroAtacado));
+                }
+                else
+                {
+                    precoVarejo = precoCusto * (1 + (decimal)porLucroVarejo);
+                    precoAtacado = precoCusto * (1 + (decimal)porLucroAtacado);
+                }
+
+                Console.Write("Preço Varejo: {0} - Preco Atacado: {1}", precoVarejo, precoAtacado);
+                sn = Console.ReadLine();
+
+                Console.WriteLine("Cadastro realizado com sucesso!");
+
+                //Console.ReadKey();
+
+                Console.Write("Deseja continuar a cadastrar produtos ? (S/N) ");
+
+                do
+                {
+                    sn = Console.ReadLine();
+                } while (sn.ToUpper() != "S" && sn.ToUpper() != "N");
+
+            } while (sn.ToUpper() == "S");
+
+
+            //string cpf = "12345678901";
+            //int a, b, c, d, e, f, g, h, i, j, k;
+
+            //a = int.Parse(cpf.Substring(0, 1));
+            //b = int.Parse(cpf.Substring(1, 1));
+            //c = int.Parse(cpf.Substring(2, 1));
+
+
+        }
+    }
+}
