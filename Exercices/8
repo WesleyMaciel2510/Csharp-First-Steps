@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exercicio01
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+
+            // // ************ Exercícios 01
+
+            string descricao = "", sn = "S";
+            int tipo = 0, cLim = 0, cAli = 0, cBeb = 0, cUti = 0, cEle = 0;
+            double peso = 0, precoCusto = 0, precoVenda = 0;
+            const double DOLAR = 3.50;
+
+
+            while (sn.ToUpper() == "S")
+            {
+                Console.Clear();
+                sn = "";
+                tipo = 0;
+                Console.Write("Insira a Descrição do produto: ");
+                descricao = Console.ReadLine();
+
+                Console.WriteLine("Insira o tipo do produto: ");
+                Console.WriteLine("1.	Limpeza");
+                Console.WriteLine("2.	Alimento");
+                Console.WriteLine("3.	Bebida");
+                Console.WriteLine("4.	Utilidades");
+                Console.WriteLine("5.	Eletrônicos");
+                while (tipo < 1 || tipo > 5)
+                    tipo = int.Parse(Console.ReadLine());
+
+                switch (tipo)
+                {
+                    case 1:
+                        cLim++;
+                        break;
+                    case 2:
+                        cAli++;
+                        break;
+                    case 3:
+                        cBeb++;
+                        break;
+                    case 4:
+                        cUti++;
+                        break;
+                    case 5:
+                        cEle++;
+                        break;
+                }
+
+                Console.Write("Insira o peso (g) ");
+                peso = double.Parse(Console.ReadLine());
+
+                Console.Write("Insira o preço de custo - US$ ");
+                precoCusto = double.Parse(Console.ReadLine());
+
+                if (precoCusto * DOLAR < 20)
+                    precoVenda = precoCusto * DOLAR * 1.5;
+                else if (precoCusto * DOLAR >= 20 && precoCusto * DOLAR < 1000)
+                    precoVenda = precoCusto * DOLAR * 1.4;
+                else if (precoCusto * DOLAR >= 1000 && precoCusto * DOLAR < 5000)
+                    precoVenda = precoCusto * DOLAR * 1.3;
+                else
+                    precoVenda = precoCusto * DOLAR * 1.2;
+
+                Console.WriteLine("Preço de Venda - R$ {0}\n", precoVenda);
+
+                Console.Write("Deseja cadastrar outro produto? (SN): ");
+                while (sn.ToUpper() != "S" && sn.ToUpper() != "N")
+                    sn = Console.ReadLine();
+            }
+
+            Console.WriteLine("Total de produtos de limpeza: {0} ", cLim);
+            Console.WriteLine("Total de produtos de alimentação: {0} ", cAli);
+            Console.WriteLine("Total de bebidas: {0} ", cBeb);
+            Console.WriteLine("Total de utilidades: {0} ", cUti);
+            Console.WriteLine("Total de produtos eletrônicos: {0} ", cEle);
+
+            Console.ReadKey();
+
+        }
+    }
+}
