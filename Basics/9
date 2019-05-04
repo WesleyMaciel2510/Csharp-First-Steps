@@ -1,0 +1,19 @@
+/*
+Classe.: Uma classe é o agrupamento de objetos com a mesma estrutura de dados (definida
+pelos atributos ou propriedades) e comportamento (operações), ou seja, classe são as descrições dos objetos!
+
+Objeto.: De maneira geral, Objeto é uma classe sendo estanciada!! De maneira mais Conceitual, um objeto é algo distinguível que contém atributos (ou propriedades) e possui um comportamento. Cada objeto tem uma identidade e é distinguível de outro mesmo que seus
+atributos sejam idênticos.
+
+Métodos.: O conjunto de funcionalidades da classe. 
+*/
+
+/ *
+Class: A class is the grouping of objects with the same data structure 
+(by attributes or properties) and behavior, in other words, class are like descriptions of objects!
+
+Object: In general, Object is a class being instantiated! More conceptually, an object is something differentiated that contains 
+properties and behaves. Each object has one identity and is distinguishable from another even though the attributes are identical.
+
+Methods.: The set of functionalities of the class.
+* /
