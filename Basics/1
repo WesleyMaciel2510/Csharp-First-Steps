@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double idade = 0, soma = 0, cont = 0;
+            do
+            {
+             Console.WriteLine("Digite a idade:");
+             idade = double.Parse(Console.ReadLine());
+             soma = soma + idade;
+             cont++;
+            } while (idade != 0);
+            cont--;
+            Console.WriteLine("A média é: {0}", soma / cont);
+
+
+            Console.ReadKey();
+        }
+    }
+}
