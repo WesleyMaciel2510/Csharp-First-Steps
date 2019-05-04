@@ -2,8 +2,9 @@
 Classe.: Uma classe é o agrupamento de objetos com a mesma estrutura de dados (definida
 pelos atributos ou propriedades) e comportamento (operações), ou seja, classe são as descrições dos objetos!
 
-Objeto.: De maneira geral, Objeto é uma classe sendo estanciada!! De maneira mais Conceitual, um objeto é algo distinguível que contém atributos (ou propriedades) e possui um comportamento. Cada objeto tem uma identidade e é distinguível de outro mesmo que seus
-atributos sejam idênticos.
+Objeto.: De maneira geral, Objeto é uma classe sendo estanciada!! De maneira mais Conceitual, um objeto é algo distinguível 
+que contém atributos (ou propriedades) e possui um comportamento. Cada objeto tem uma identidade e é distinguível de outro
+mesmo que seus atributos sejam idênticos.
 
 Métodos.: O conjunto de funcionalidades da classe. 
 */
@@ -17,3 +18,32 @@ properties and behaves. Each object has one identity and is distinguishable from
 
 Methods.: The set of functionalities of the class.
 * /
+
+_____________________________________________________________________________________________________________________________________
+
+CLASSE : PROGRAM - Classe principal 
+
+METODOS : Executa os códigos.
+
+MAIN () // Inicia os demais comandos
+
+4 tipos de metodos
+ 
+public, private 
+1 - nao recebe e nao envia, apenas executa // void ()
+2 - não recebe e envia
+3 - recebe mas não envia
+4 - recebe e envia
+
+Instanciar a classe - fazer o Program reconhece-la
+Encapsulamento - Abstrair apenas as informações necessárias como public e esconder as que não são como private
+
+int a = 56;
+cl.Cadastro(a);
+
+public void Cadastro(int x )
+        {
+            Console.WriteLine(x);
+        }
+// nesse exemplo, a envia seu valor para x, e o conteudo de x passa a ser 56, no entanto, caso x seja alterado, a não se altera.
+_____________________________________________________________________________________________________________________________________
