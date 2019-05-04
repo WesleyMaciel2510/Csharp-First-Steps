@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Animal
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Animal animal = new Animal();
+            int op = 0;
+            do
+                {
+                Console.Clear();
+                Console.WriteLine("Sistema Veterinario ");
+                Console.WriteLine("Escolha uma das opções");
+
+                Console.WriteLine("1. Cadastro de animais");
+                Console.WriteLine("2. Listagem de animais");
+                Console.WriteLine("3. Consulta de animais");
+                Console.WriteLine("4. Sair");
+                op = int.Parse(Console.ReadLine());
+                if (op == 4)
+                    break;
+
+               switch (op)
+                {
+                    case 1:
+                        Console.Clear();
+                        animal.Gravar();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        animal.Ler();
+                        Console.ReadKey();
+                        break;
+
+                    case 3:
+                        Console.Clear();
+                        animal.
+
+                        break;
+                     
+                }
+
+            } while (true) ;
+
+        }
+    }
+}
