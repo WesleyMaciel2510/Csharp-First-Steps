@@ -1,0 +1,197 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exercicio02
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+//*** declarando as variáveis necessárias
+            string nome, pNome, uNome, email, cpf, sn;
+            char sexo;
+            byte curso, nProvas, ini, fim;
+            byte a, b, c, d, e, f, g, h, i, j, k, resto, d1, auxD1, d2;
+            float nota, media = 0;
+            bool cpfOk = false;
+
+// geralmente usamos o do.. while para permitir que a rotina em questão seja 
+// realizada pelo menos uma vez
+            do
+            {
+                Console.Clear();
+                cpfOk = false;
+
+                Console.Write("Digite seu nome Completo: ");
+                nome = Console.ReadLine();
+
+// o método IndexOf() procura um caractere determinado (o primeiro) 
+// em uma string e retorna a posição a partir do ZERO
+                ini = (byte)nome.IndexOf(" ");
+
+// o comando Substring(x, y) retorna um conjunto de caracteres especificados em x e y  
+// onde x é a posição inicial e y é a contagem de quantos caracteres deve-se contar 
+// dedpois da posição inicial
+                pNome = nome.Substring(0, ini);
+
+// o método LastIndexOf() procura um caractere determinado (o último) 
+// em uma string e retorna a posição a partir do ZERO
+                fim = (byte)nome.LastIndexOf(" ");
+                uNome = nome.Substring(fim);
+
+
+                do
+                {
+                    Console.Write("Sexo (M/F): ");
+                    sexo = char.Parse(Console.ReadLine()); // precisamos converter uma string em char
+                    if (char.ToUpper(sexo) != 'M' && char.ToUpper(sexo) != 'F')
+                        Console.WriteLine("Sexo inválido! digite novamente");
+                } while (char.ToUpper(sexo) != 'M' && char.ToUpper(sexo) != 'F');
+
+
+                do
+                {
+                    Console.Write("Email: ");
+                    email = Console.ReadLine();
+// quando usamos o método IndexOf() ou LastIndexOf() e ele não achar o caractere, ele retorna -1
+                    if (email.IndexOf("@") < 0 || email.IndexOf(".") < 0 || email.IndexOf(" ") >= 0)
+                        Console.WriteLine("Email inválido! digite novamente");
+                } while (email.IndexOf("@") < 0 || email.IndexOf(".") < 0 || email.IndexOf(" ") >= 0);
+
+// início da rotina para verificar o CPF
+                do
+                {
+                    Console.Write("CPF (somente os dígitos): ");
+                    cpf = Console.ReadLine();
+
+                    //******************  consistência do CPF - inicio
+
+// foram criadas vaiáveis a, b, c, etc.. cada uma para armazenar um caractere digitado na 
+// variável cpf, em sequida foi convertida para byte para que pudéssemos fazer contas com ela
+
+                    a = byte.Parse(cpf.Substring(0, 1));
+                    b = byte.Parse(cpf.Substring(1, 1));
+                    c = byte.Parse(cpf.Substring(2, 1));
+                    d = byte.Parse(cpf.Substring(3, 1));
+                    e = byte.Parse(cpf.Substring(4, 1));
+                    f = byte.Parse(cpf.Substring(5, 1));
+                    g = byte.Parse(cpf.Substring(6, 1));
+                    h = byte.Parse(cpf.Substring(7, 1));
+                    i = byte.Parse(cpf.Substring(8, 1));
+
+// as variáveis j e k armazenam os dígitos verificadores do CPF
+                    j = byte.Parse(cpf.Substring(9, 1)); // dígito 1 a verificar
+                    k = byte.Parse(cpf.Substring(10, 1));  // dígito 2 a verificar
+
+// lembrando que o camando (a *= 10) é o mesmo que (a = a * 10)
+                    a *= 10;
+                    b *= 9;
+                    c *= 8;
+                    d *= 7;
+                    e *= 6;
+                    f *= 5;
+                    g *= 4;
+                    h *= 3;
+                    i *= 2;
+
+                    resto = (byte)((a + b + c + d + e + f + g + h + i) % 11);
+
+// d1 é o resultado do primeiro dígito verificador
+                    d1 = (resto < 2) ? (byte)0 : (byte)(11 - resto);
+// a variável auxD1 armazena temporariamente o primiero dígito para que possamos fazer um cálculo com ele
+                    auxD1 = d1;
+
+                    a = byte.Parse(cpf.Substring(0, 1));
+                    b = byte.Parse(cpf.Substring(1, 1));
+                    c = byte.Parse(cpf.Substring(2, 1));
+                    d = byte.Parse(cpf.Substring(3, 1));
+                    e = byte.Parse(cpf.Substring(4, 1));
+                    f = byte.Parse(cpf.Substring(5, 1));
+                    g = byte.Parse(cpf.Substring(6, 1));
+                    h = byte.Parse(cpf.Substring(7, 1));
+                    i = byte.Parse(cpf.Substring(8, 1));
+
+                    a *= 11;
+                    b *= 10;
+                    c *= 9;
+                    d *= 8;
+                    e *= 7;
+                    f *= 6;
+                    g *= 5;
+                    h *= 4;
+                    i *= 3;
+                    auxD1 *= 2;
+
+                    resto = (byte)((a + b + c + d + e + f + g + h + i + auxD1) % 11);
+
+// d2 é o resultado do segundo dígito verificador
+
+                    d2 = (resto < 2) ? (byte)0 : (byte)(11 - resto);
+
+//******************  consistência do CPF  - fim
+
+// o camndo cpf.Length conta quantos caracteres há na variável
+
+                    if (d1 == j && d2 == k && cpf.Length == 11)
+                        cpfOk = true;
+                    else
+                        Console.WriteLine("CPF inválido!");
+                } while (cpfOk == false);
+
+                Console.WriteLine("Selecione o Curso: (1 a 5)");
+                Console.WriteLine("1. Básico");
+                Console.WriteLine("2. Pré-Intermediário");
+                Console.WriteLine("3. Intermediário");
+                Console.WriteLine("4. Intermediário-avançado");
+                Console.WriteLine("5. Avançado");
+
+                do
+                {
+                    curso = byte.Parse(Console.ReadLine());
+                    if (curso < 1 || curso > 5)
+                        Console.WriteLine("Curso inválido! somente de 1 a 5 - digite novamente");
+                } while (curso < 1 || curso > 5);
+
+
+                Console.Write("Digite o número de Provas: ");
+                nProvas = byte.Parse(Console.ReadLine());
+
+// neste looping de for, ele pede ao usuário que insira as notas por quantas vezes o usuário 
+// inseriu na varável nProvas, inseridas na linha anterior
+                for (int x = 1; x <= nProvas; x++)
+                {
+                    Console.Write("{0}° nota:", x);
+                    nota = float.Parse(Console.ReadLine());
+
+                    media += nota; // não esqueça:  isso é o mesmo que media = media + nota
+                }
+
+                Console.WriteLine("Média Final: {0}", media /= nProvas);
+
+// ao colocarmos o \n no meio da mensagem, ele pula uma linha
+                if (media >= 6)
+                    Console.WriteLine("Sr(a). {0} {1}, você está aprovado(a), podendo assim dar \ncontinuidade ao seu curso.", pNome.ToUpper(), uNome.ToUpper());
+                else if (media < 6 && media >= 4)
+                    Console.WriteLine("Sr(a). {0} {1}, você se encontra de exame, estando pendente \npara o próximo seu módulo.", pNome.ToUpper(), uNome.ToUpper());
+                else
+                    Console.WriteLine("Sr(a). {0} {1}, você se encontra de reprovado(a), estando \nimpedido de cursar o próximo seu módulo.", pNome.ToUpper(), uNome.ToUpper());
+
+
+                do
+                {
+                    Console.Write("Continuar cadastro? (S/N): ");
+                    sn = Console.ReadLine();
+                    if (sn.ToUpper() != "N" && sn.ToUpper() != "S")
+                        Console.WriteLine("Opção Inválida!");
+                } while (sn.ToUpper() != "N" && sn.ToUpper() != "S");
+
+            } while (sn.ToUpper() == "S");
+
+
+        }
+    }
+}
