@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //  string frase, parcial;
+
+            //  frase = " Hello New World!";
+            ////  int x = frase.Length, cont = 0;
+            //  Console.WriteLine(frase);
+            //  parcial = Console.ReadLine();
+
+            //for (int i = 0; i< (x - parcial.Length); i++)
+            //{
+            //    //  if (frase.Substring(i, 1) == "m")  cont++; i< 5;
+            //    if (frase.Substring(i, parcial.Length) == parcial.Trim())
+            //        cont++;
+            //}
+
+            // parcial = frase.Substring(0, 3);
+
+
+            //Console.WriteLine(frase.ToUpper());
+            //Console.WriteLine(frase.ToLower());
+            //Console.WriteLine(frase.Trim()); //Trim desconsidera os espaços
+
+            //string numero = "35154879";
+            //int soma = 0, num ;
+
+            //for (int i = 0; i < numero.Length; i++)
+            //{
+            //    num = int.Parse(numero.Substring(i, 1));
+            //    soma = soma + num;
+            //}
+
+            //   string nome = "Maria Antonieta da Silva";
+            //   int num = 0, num2 = 0;
+            //   num = nome.IndexOf("p"); //IndexOf somente mostra 1ª incidencia da varredura da esquerda->direita
+
+            //   num2 = nome.LastIndexOf("j"); //Primeira incidencia da direita<-esquerda
+            //   // fazer um algoritmo pra contar quantas letras a string digitada tem, tirando espaços com trim
+
+            //   string email;
+
+            //   Console.Write("Digite seu email: ");
+
+            //   do
+            //   {
+            //       email = Console.ReadLine();
+            //   } while (email.IndexOf(" ") >= 0 || 
+            //            email.IndexOf("@") < 0 ||
+            //            email.IndexOf(".") < 0);
+
+            char car;
+
+            car = '1';
+
+            Console.WriteLine(char.ToUpper(car));
+            Console.WriteLine(char.ToLower(car));
+
+            Console.WriteLine(char.IsDigit(car));
+            Console.WriteLine(char.IsLetter(car));
+            Console.WriteLine(char.IsPunctuation(car));
+            Console.WriteLine(char.IsUpper(car));
+            Console.WriteLine(char.IsLower(car));
+            Console.WriteLine(char.IsWhiteSpace(car));
+
+            string cpf;
+
+            int a, b, c;
+
+            cpf = Console.ReadLine();
+
+            a = int.Parse(cpf.Substring(0, 1));
+            b = 
+
+            //   Console.WriteLine(num);
+            //   Console.WriteLine(num2);
+            Console.ReadKey();
+         }
+    }
+}
