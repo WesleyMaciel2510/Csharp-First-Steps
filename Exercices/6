@@ -1,0 +1,174 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Aula_00
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Olá mundo!");
+            string nomeCompleto = "WesleyMaciel"; // variável caractere
+            int idade = 21; // variável inteiro
+            double peso = 84.2, altura = 1.79; // variável real
+            bool ok = true; // variável booleano
+
+            // Console.Write = ESCREVA
+            // Console.WriteLine = ESCREVAL
+
+            Console.Write("Qual é seu nome? ");
+            nomeCompleto = Console.ReadLine();
+
+            Console.Write("Qual é sua idade? ");
+            idade = int.Parse(Console.ReadLine());
+
+            Console.Write("Qual é seu peso? ");
+            peso = double.Parse(Console.ReadLine());
+
+            Console.Write("Qual é sua altura? ");
+            altura = double.Parse(Console.ReadLine());
+
+            //peso = peso + 1;
+            //idade = idade - 1;
+            //altura = altura * 1.4;
+            //peso = peso / 2;
+
+            int resto;
+
+            // O sinal % é o MOD em C#
+            resto = 5 % 2;
+            Console.WriteLine("Resto: {0}", resto);
+
+            //idade = (int)peso;
+
+
+            // Declaração de constantes
+
+            // const + tipo  para declarar constantes
+            const double DOLAR = 4.05;
+            double salario;
+
+            salario = DOLAR * 30.5;
+
+            Console.WriteLine("Nome Completo: {0}", nomeCompleto);
+            Console.WriteLine("Idade: {0}", idade);
+            Console.WriteLine("Peso: {0} - Altura: {1}", peso, altura);
+            Console.WriteLine( "Isso não acontece no munso real {0}", ok);
+            Console.WriteLine("O salário é {0}", salario);
+
+            // estrutura condicional SE / SENAO
+
+            if (peso <= 65)
+            {
+                Console.WriteLine("Você está na média de peso");
+                Console.WriteLine("Continue assim!");
+            }
+            else
+            {
+                Console.WriteLine("Você está acima do peso");
+                Console.WriteLine("Faça mais exercícios!");
+            }
+
+            if (altura <= 1.4)
+            {
+                Console.WriteLine("Você é muito baixo");
+            }
+            else if (altura > 1.4 && altura <= 1.6)
+            {
+                Console.WriteLine("Você é baixo");
+            }
+            else if (altura > 1.6 && altura <= 1.75)
+            {
+                Console.WriteLine("Você tem altura mediana");
+            }
+            else
+            {
+                Console.WriteLine("Você é alto");
+            }
+
+            // && E
+            // || OU
+            // != Diferente
+            // == Igual
+            // = atribuição
+
+            Console.WriteLine("Qual é o seu time de coração?");
+            Console.WriteLine("1. São Paulo");
+            Console.WriteLine("2. Flamengo");
+            Console.WriteLine("3. Palmeiras");
+            Console.WriteLine("4. Cruzeiro");
+            Console.WriteLine("5. Corinthians");
+            Console.WriteLine("6. Atlético Mineiro");
+            Console.WriteLine("7. Uberabense");
+
+            int opcao;
+            opcao = int.Parse(Console.ReadLine());
+
+
+
+            // estrutura condicional ESCOLHA / CASO
+            switch (opcao)
+            {
+                case 1:
+                    Console.WriteLine("Time alternativo!");
+                    Console.WriteLine("Pós de arroz!");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Time do cheirinho!");
+                    Console.WriteLine("Toca do urubu!");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Time sem mundial");
+                    Console.WriteLine("Fora porcaiada!");
+                    break;
+
+                case 4:
+                    Console.WriteLine("As Marias");
+                    Console.WriteLine("Margaridas");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Passa o celular");
+                    Console.WriteLine("Gaviões! Fiel!");
+                    break;
+
+                case 6:
+                    Console.WriteLine("galo forte e vingador!");
+                    Console.WriteLine("galinha pintadinha!");
+                    break;
+                case 7:
+                    Console.WriteLine("Força maior do triângulo mineiro");
+                    Console.WriteLine("Campeão regional (série C)!");
+                    break;
+
+                default:
+                    Console.WriteLine("Torço para seleção brasileira");
+                    Console.WriteLine("olha o 7 a 1!");
+                    break;
+
+            }
+
+            // condição ternária
+            int x = 2, y = 1;
+
+            if (x == 1)
+            {
+                y = x * 2;
+            }
+            else
+            {
+                y = x * 7;
+            }
+
+            y = (x == 0) ? (y * 2) : (y * 7);
+
+
+            Console.ReadKey();
+        }
+    }
+}
