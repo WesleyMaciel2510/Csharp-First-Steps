@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //int x;
+            //DateTime dataNasc = DateTime.Parse("25/10/1997"), dataHoje;
+            // dataNasc = DateTime(1997, 10, 25, 00, 00, 00);
+
+            // dataNasc = DateTime.Parse(Console.ReadLine());
+
+            //dataHoje = DateTime.Now;
+
+            //Console.WriteLine("Data de hoje: {0}", dataHoje);
+            //Console.WriteLine("Data de hoje: {0}", dataHoje.ToLongDateString());
+            //Console.WriteLine("Data de hoje: {0}", dataHoje.ToShortDateString());
+            //Console.WriteLine("Data de hoje: {0}", dataHoje.ToShortTimeString());
+            //Console.WriteLine("Dia de hoje: {0}", dataHoje.Day);
+            //Console.WriteLine("Mes atual: {0}", dataHoje.Month);
+            //Console.WriteLine("Ano atual: {0}", dataHoje.Year);
+
+            //int d = 30, m = 1; 
+            //Console.WriteLine("Adicionar dias: {0}", dataHoje.AddDays(30).ToShortDateString());
+            //Console.WriteLine("Adicionar dias: {0}", dataHoje.AddMonths (m).ToShortDateString());
+            //Console.WriteLine("Adicionar dias: {0}", dataHoje.AddYears(2).ToShortDateString());
+            //Console.WriteLine("Ano de hoje: {0}", (int)dataHoje.Year());
+
+            DateTime dataQ = new DateTime(2019, 05, 01);
+
+            int cont = 0, sd = 0, cy = 0;
+            while (dataQ.AddDays(cont).Month == 5) 
+            {
+                if ((int)dataQ.AddDays(cont).DayOfWeek == 0)
+                {
+                    sd++;
+                    if (sd == 2)
+                    {
+                        Console.WriteLine("DIA DAS MAES {0}", dataQ.AddDays(cont).ToLongDateString());
+                    }
+
+                   
+                }
+                cont++;
+              
+            }
+            DateTime data1 = DateTime.Parse("10/01/2018");
+                DateTime data2 = DateTime.Now;
+
+                int res = (int)data2.Subtract(data1).TotalDays;
+                Console.WriteLine(res);
+
+
+            Console.ReadKey();
+        }
+    }
+}
