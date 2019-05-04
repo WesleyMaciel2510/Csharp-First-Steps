@@ -1,0 +1,16 @@
+//  try catch
+
+//tente capturar 
+//é usado para tentar fazer com que o usuario digite corretamente e nao de bug 
+
+//STRING = VETOR BASE 0 
+ string nome = "Wesley Maciel";
+            int x;
+
+            x = nome.Length; //retorna o numero de caracteres
+
+            Console.WriteLine(x);
+
+            Console.WriteLine(nome.Substring(3,1));
+
+
