@@ -1,0 +1,152 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Agenda
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int op = 0;
+            string nomeFone;
+            bool ok = false;
+            Nome contato = new Nome();
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("######");
+                Console.WriteLine("AGENDA");
+                Console.WriteLine("######");
+                Console.WriteLine("1. POR NOME");
+                Console.WriteLine("2. POR TELEFONE");
+                Console.WriteLine("3. SAIR");
+                op = int.Parse(Console.ReadLine());
+
+                if (op == 3)
+                    break;
+
+                switch (op)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.Write("Digite o nome do contato: ");
+                        nomeFone = Console.ReadLine();
+                        ok = contato.ProcuraNome(nomeFone);
+                        if (ok)
+                            Console.WriteLine("ACHOOOOOOOOOUUUU");
+                        else
+                            Console.WriteLine("NOT FOUND!");
+                        Console.ReadKey();
+                        break;
+                    case 2:
+                        Console.Clear();
+                        Console.Write("Digite o telefone do contato: ");
+                        nomeFone = Console.ReadLine();
+                        ok = contato.ProcuraFone(nomeFone);
+                        ok = contato.ProcuraNome(nomeFone);
+                        if (ok)
+                            Console.WriteLine("ACHOOOOOOOOOUUUU");
+                        else
+                            Console.WriteLine("NOT FOUND!");
+                        Console.ReadKey();
+                        break;
+                }
+            } while (true);
+
+
+
+        }
+    }
+}
+// ____________________________________________________________________________
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Agenda
+{
+    class Nome
+    {
+        private string NomeAgenda { get; set; }
+        //ler, escrever
+        void Agenda()
+        {
+
+        }
+
+        public bool ProcuraNome(string nome)
+        {
+            string linha = "";
+            int indice = 0;
+            string termo = "";
+            bool ok = false;
+
+            StreamReader ler = new StreamReader("Agenda.txt");
+
+            while (!ler.EndOfStream)
+            {
+                linha = ler.ReadLine();
+                indice = linha.IndexOf(":");
+                termo = linha.Substring(0, indice);
+
+                if (termo.ToUpper().Trim() == nome.ToUpper().Trim())
+                {
+                    Console.WriteLine("{0} = {1}", termo, linha.Substring(indice + 2));
+                }
+                Console.ReadKey();
+                ok = true;
+
+            }
+            return ok;
+        }
+
+
+        public bool ProcuraFone(string fone)
+        {
+            string linha = "";
+            int indice = 0;
+            string termo = "";
+            bool ok = false;
+
+            StreamReader ler = new StreamReader("Agenda.txt");
+
+            while (!ler.EndOfStream)
+            {
+                linha = ler.ReadLine();
+                indice = linha.IndexOf(":");
+                termo = linha.Substring(indice + 2);
+
+                if (termo.ToUpper().Trim() == fone.ToUpper().Trim())
+                {
+                    Console.WriteLine("{0} = {1}", termo, linha.Substring(0, indice));
+                }
+                Console.ReadKey();
+                ok = true;
+            }
+            return ok;
+        }
+
+        public void Gravar()
+        {
+            string nome, fone;
+            Console.Write("Digite o nome para registro: ");
+            nome = Console.ReadLine();
+            Console.Write("Digite o fone para registro: ");
+            fone = Console.ReadLine();
+
+            StreamWriter gravar = new StreamWriter("Agenda.txt", true);
+
+            gravar.WriteLine(nome + ": " + fone);
+            Console.WriteLine("Gravação efetuada!");
+            Console.ReadKey();
+
+        }
+    }
+}
