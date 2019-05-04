@@ -1,0 +1,16 @@
+DateTime dataQ = new DateTime(2019, 05, 01);
+
+            int cont = 0, sd = 0, cy = 0;
+            while (dataQ.AddDays(cont).Month == 5)
+            {
+                if ((int)dataQ.AddDays(cont).DayOfWeek == 0)
+                {
+                    sd++;
+                    if (sd == 2)
+                    {
+                        Console.WriteLine("DIA DAS MAES {0}", dataQ.AddDays(cont).ToLongDateString());
+                    }
+
+
+                }
+                cont++;
