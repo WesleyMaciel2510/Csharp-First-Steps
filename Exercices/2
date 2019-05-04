@@ -1,0 +1,88 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Aula_03
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string nomeCompleto, nomeCompletoFilho, rg, cpf, sn;
+            DateTime dataNas;
+            int numFilhos;
+            char sexo;
+            decimal salBase, salTotal;
+            double horas, inss;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("*** Cadastro de Funcionários***");
+                Console.Write("Nome do(a) Funcionário(a): ");
+                nomeCompleto = Console.ReadLine();
+
+                Console.Write("RG: ");
+                rg = Console.ReadLine();
+
+                Console.Write("CPF: ");
+                cpf = Console.ReadLine();
+
+                Console.Write("Data de Nascimento: ");
+                dataNas = DateTime.Parse(Console.ReadLine());
+
+                do
+                {
+                    Console.Write("Sexo (F/M): ");
+                    sexo = char.Parse(Console.ReadLine());
+                } while (sexo != 'm' && sexo != 'f' && sexo != 'M' && sexo != 'F');
+
+                Console.Write("Salário base: ");
+                salBase = decimal.Parse(Console.ReadLine());
+
+                Console.Write("Número de horas: ");
+                horas = double.Parse(Console.ReadLine());
+
+                salTotal = salBase * (decimal)horas;
+                Console.WriteLine("Salário parcial: {0:C}",salTotal);
+
+                if (salTotal <= 1000)
+                {
+                    inss = 8.0 / 100;
+                }
+                else if (salTotal > 1001 && salTotal <= 2500)
+                {
+                    inss = 9.0 / 100;
+                }
+                else
+                {
+                    inss = 11.0 / 100;
+                }
+
+                salTotal = salTotal - (salTotal * (decimal)inss);
+                Console.WriteLine("Salário total: {0:C}", salTotal);
+                // :C - Moeda corrente
+
+                Console.Write("N° de filhos: ");
+                numFilhos = int.Parse(Console.ReadLine());
+
+                for (int i = 0; i < numFilhos; i++)
+                {
+                    Console.Write("Informe o nome do {0}° filho(a): ", i + 1);
+                    nomeCompletoFilho = Console.ReadLine();
+                }
+
+                do
+                {
+                    Console.Write("Deseja continuar? (S/N): ");
+                    sn = Console.ReadLine();
+                } while (sn.ToLower() != "s" && sn.ToLower() != "n");
+
+            } while (sn.ToLower() == "s");
+
+        }
+    }
+}
