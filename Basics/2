@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+
+        {
+            int y = 1;
+            double soma = 0;
+            for (double i = 1; i <= 50; i++)
+            {
+                soma = soma + (y / i);
+                y += 2;
+                Console.WriteLine("{0} / {1} = {2}", y, i, y / i);
+                Console.WriteLine("A soma é:{0}", soma);
+                Console.ReadKey();
+            }
+        }
+    }
+}
