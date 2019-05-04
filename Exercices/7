@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Aula_01
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //string op;
+
+            //Console.Write("Sexo? (M/F): ");
+            //op = Console.ReadLine();
+
+            //switch (op)
+            //{
+            //    case "M":
+            //    case "m":
+            //        Console.WriteLine("Sexo masculino escolhido!");
+            //        break;
+
+            //    case "F":
+            //    case "f":
+            //        Console.WriteLine("Sexo feminino escolhido!");
+            //        break;
+
+            //    default:
+            //        Console.WriteLine("Sexo Inexistente!");
+            //        break;
+            //}
+
+
+            // equivale ao "enquanto" no VisualG
+
+            int x = 13;
+
+            //while (x <= 12)
+            //{
+            //    if (x == 6)
+            //    {
+            //        Console.WriteLine("Acabei!");
+            //        x = x + 1;
+            //        continue; // força a rever a condição
+            //        // break interrompe o laço completamente
+            //    }
+
+            //    Console.WriteLine("Wesley {0}",x);
+            //    x = x + 2;
+            //}
+
+            do
+            {
+                if (x == 6)
+                {
+                    Console.WriteLine("Acabei!");
+                    x = x + 1;
+                    continue; // força a rever a condição
+                              // break interrompe o laço completamente
+                }
+
+                Console.WriteLine("Wesley {0}", x);
+                x = x + 2;
+
+            } while (x <= 12);
+
+
+            for (int i = 100; i < 201; i++)
+            {
+
+                if(i % 11 == 0)
+                {
+                    Console.WriteLine("Valor de i: {0}", i);
+                }
+
+            }
+
+            Console.ReadKey();
+
+        }
+    }
+}
