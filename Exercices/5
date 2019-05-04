@@ -1,0 +1,43 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Exercicio2A
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string codBarra = "341200320180000030152";
+            string banco;
+            decimal valor;
+            DateTime dataVencto;
+            int dia, mes, ano;
+
+            Console.WriteLine("Insira o códico de barra: {0}", codBarra);
+            //codBarra = Console.ReadLine();
+            banco = codBarra.Substring(0, 3);
+            Console.WriteLine("Banco: {0}", banco);
+            dia = int.Parse(codBarra.Substring(3, 2));
+            mes = int.Parse(codBarra.Substring(5, 2));
+            ano = int.Parse(codBarra.Substring(7, 4));
+
+            dataVencto = new DateTime(ano, mes, dia);
+            Console.WriteLine("Data de Vencimento: {0}", dataVencto.ToShortDateString());
+
+            valor = decimal.Parse(codBarra.Substring(11)) / 100m;
+
+            Console.WriteLine("Data de hoje: {0}", DateTime.Now.ToShortDateString());
+
+            valor = (dataVencto < DateTime.Now) ? (valor * 1.2m) : valor;
+
+            Console.WriteLine("O valor a pagar é: {0:C}", valor);
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
